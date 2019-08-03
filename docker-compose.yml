@@ -14,6 +14,18 @@ services:
     environment:
       - PGHOST=db
       - PGUSER=postgres
+  export:
+    image: kosmtik:v1
+    build:
+      context: .
+      dockerfile: Dockerfile.export
+    volumes:
+      - .:/openstreetmap-carto
+    depends_on:
+      - db
+    environment:
+      - PGHOST=db
+      - PGUSER=postgres
   db:
     image: db:v1
     build:
@@ -36,8 +48,8 @@ services:
     environment:
       - PGHOST=db
       - PGUSER=postgres
-      - PG_WORK_MEM
-      - PG_MAINTENANCE_WORK_MEM
-      - OSM2PGSQL_CACHE
-      - OSM2PGSQL_NUMPROC
-      - OSM2PGSQL_DATAFILE
+      - PG_WORK_MEM=128MB
+      - PG_MAINTENANCE_WORK_MEM=2GB
+      - OSM2PGSQL_CACHE=2048
+      - OSM2PGSQL_NUMPROC=4
+      - OSM2PGSQL_DATAFILE=data.osm.pbf
