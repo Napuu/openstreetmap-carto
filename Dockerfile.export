@@ -26,5 +26,4 @@ RUN kosmtik plugins --install kosmtik-overpass-layer \
 RUN mkdir -p /openstreetmap-carto
 WORKDIR /openstreetmap-carto
 USER 1000
-RUN chmod +x scripts/export_tiles.sh
-CMD sh scripts/export_tiles.sh
+CMD sh /openstreetmap-carto/scripts/export_tiles.sh
