@@ -30,7 +30,7 @@ mkdir -p /openstreetmap-carto/tiles
 kosmtik export /openstreetmap-carto/project.mml --format tiles --output /openstreetmap-carto/tiles --minZoom 0 --maxZoom 6
 
 # layers to 10 for europe
-kosmtik export /openstreetmap-carto/project_europe.mml --format tiles --output /openstreetmap-carto/tiles --minZoom 0 --maxZoom 10
+kosmtik export /openstreetmap-carto/project_europe.mml --format tiles --output /openstreetmap-carto/tiles --minZoom 7 --maxZoom 10
 
 # and layers at finland from 0 to 18
 # kosmtik export /openstreetmap-carto/project_finland.mml --format tiles --output /openstreetmap-carto/tiles --minZoom 0 --maxZoom 18
